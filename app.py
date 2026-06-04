@@ -107,8 +107,8 @@ def process_video(video_path, add_subtitles, progress=gr.Progress()):
 
         cmd2 = [ffmpeg_path, "-y", "-i", str(path),
                 "-vf", filter_str,
-                "-c:v", "libx264", "-crf", "23", "-preset", "fast",
-                "-c:a", "copy",
+                "-c:v", "libx264", "-crf", "17", "-preset", "slow",
+                "-c:a", "aac", "-b:a", "192k",
                 str(output_path)]
         if not run_ffmpeg(cmd2, "处理视频"):
             return None, "❌ 视频处理失败"
